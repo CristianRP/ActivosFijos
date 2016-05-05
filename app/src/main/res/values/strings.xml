@@ -1,0 +1,189 @@
+<resources>
+    <string name="app_name">Activos Fijos</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="action_loading">Cargando&#8230;</string>
+
+    <!-- Strings activity login -->
+    <string name="title_activity_login">Inicio de Sesión</string>
+    <string name="prompt_user">Usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="btn_sign_in">Iniciar Sesión</string>
+    <string name="error_user_field_required">El usuario es requerido</string>
+    <string name="error_password_field_required">La contraseña es requerida</string>
+    <string name="content_login">
+        <![CDATA[
+            <b>Bienvenido,</b> \n <br/>
+            para usar la aplicación debes iniciar sesión.
+        ]]>
+    </string>
+    <string name="login_error">Revisa tus datos.</string>
+
+
+    <!-- navigation drawer strings -->
+    <string name="inventario_item">Toma de Inventario</string>
+    <string name="reportes_item">Reportes</string>
+    <string name="movimientos_item">Movimientos</string>
+    <string name="ficha_item">Tarjeta de Responsabilidad</string>
+    <string name="bitacora_item">Bitacora</string>
+    <string name="configuracion_item">Configuración</string>
+    <string name="log_out_item">Cerrar Sesión</string>
+    <string name="nav_departamento">Departamento</string>
+    <string name="nav_usuario">Usuario</string>
+    <string name="nav_activo">Escanear Activo</string>
+
+    <!--Strings fragments-->
+    <string name="title_usuarios">Usuarios</string>
+    <string name="title_listado">Activos fijos de %1$s</string>
+    <string name="no_content">No tienes activos asignados.</string>
+    <string name="regresar_home">Regresar al Inicio</string>
+    <string name="re_scann">Escanear de nuevo.</string>
+    <string name="no_hay_activos">No hay ningún activo con ese código.</string>
+    <string name="no_hay_movimientos">No se esta realizando ningún movimiento.</string>
+
+    <!--Strings toolbar -->
+    <string name="title_menu_scann">Escanear codigo.</string>
+    <string name="hint_scan">Escanea tu codigo.</string>
+    <string name="title_menu_badge">Total de activos.</string>
+    <string name="enviar_inventario">Enviar Inventario</string>
+
+    <!--Strings dialogs -->
+    <string name="escanear">\t <b>Escanear</b></string>
+    <string name="ingresar_codigo">\t <b>Ingresar Codigo</b></string>
+    <string name="ver_detalle">\t <b>Ver detalle del activo</b></string>
+    <array name="list_options">
+        <item>@string/escanear</item>
+        <item>@string/ver_detalle</item>
+    </array>
+    <string name="title_dialog">¿Que deseas hacer?</string>
+    <string name="escanear_op">Escanear</string>
+    <string name="re_escanear_op">Re-Escanear</string>
+    <string name="reportar_op">No encontrado</string>
+
+    <array name="opciones_scann">
+        <item>@string/escanear_op</item>
+        <item>@string/re_escanear_op</item>
+        <item>@string/reportar_op</item>
+    </array>
+    <string name="cancel">Cancelar</string>
+    <string name="elegir">Elegir</string>
+
+    <!-- Strings nav_header-->
+    <string name="company_name">Grupo Rosul</string>
+
+    <string name="resumen_inventario">Resumen nuevo inventario</string>
+    <string name="titulo_inventario">Inventario No. %1$s </string>
+    <string name="fecha">Fecha:</string>
+    <string name="usuario">Usuario:</string>
+    <string name="ubicacion">Ubicación:</string>
+    <string name="estado">Estado:</string>
+    <string name="estado_value">En Proceso.</string>
+    <string name="iniciar_inventario">Iniciar Inventario</string>
+    <string name="titulo_nuevo">Nuevo Inventario</string>
+    <string name="content_nuevo">Deseas crear un nuevo inventario para %1$s?</string>
+    <string name="crear">Crear</string>
+    <string name="continuar">Regresar</string>
+
+    <!-- STRINGS FICHA COLABORADOR -->
+    <string name="ingresar_cod">Ingresar Código</string>
+    <string name="prompt_codigo">Código</string>
+    <string name="escanear_carnet">Escanear carné</string>
+    <string name="buscar">Buscar</string>
+    <string name="error_codigo">Este campo es requerido.</string>
+    <string name="calcular">Calcular</string>
+
+    <!-- STRINGS CALCULO INVENTARIO -->
+    <string name="titulo_calculo">Diferencias del inventario No. %1$s</string>
+    <string name="descripcion">Descripción</string>
+    <string name="estado_calculo">Estado</string>
+    <string name="titulo_dialog_calculo">Inventario completo.</string>
+    <string name="content_calculo">No hay diferencias en el inventario. \n
+        Quieres enviar el inventario?
+    </string>
+    <string name="send_inventario">Enviar</string>
+    <string name="calcular_title">Quieres calcular el inventario?</string>
+    <string name="calcular_content">Calcular los activos escaneados con los que el colaborador tiene asignados.</string>
+    <string name="action_calcular">Calcular</string>
+
+
+    <!-- CRASH ACTIVITY -->
+    <string name="customactivityoncrash_error_activity_error_occurred_explanation">A ocurrido un error inesperado.\nPerdón por el inconveniente.</string>
+    <string name="customactivityoncrash_error_activity_unknown_exception">Unknown exception</string>
+    <string name="customactivityoncrash_error_activity_restart_app">Reiniciar App</string>
+    <string name="customactivityoncrash_error_activity_close_app">Cerrar App</string>
+    <string name="customactivityoncrash_error_activity_error_details">Detalles del Error</string>
+    <string name="customactivityoncrash_error_activity_error_details_title">Detalles del Error</string>
+    <string name="customactivityoncrash_error_activity_error_details_close">Cerrar</string>
+    <string name="customactivityoncrash_error_activity_error_details_copy">Copiar al portapapeles</string>
+    <string name="customactivityoncrash_error_activity_error_details_copied">Copiado al portapapeles</string>
+    <string name="customactivityoncrash_error_activity_error_details_clipboard_label">Información del error</string>
+
+    <!-- CONFIRM EXIT -->
+    <string name="titulo_salir">Salir</string>
+    <string name="content_salir">Quieres salir de la aplicación?</string>
+    <string name="btn_salir">Salir</string>
+
+
+    <!-- SCANN ACTIVO -->
+    <string name="id_colaborador">
+        <![CDATA[
+            <b>Código de colaborador: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+    <string name="nombre_colaborador">
+        <![CDATA[
+            <b>Nombre del colaborador: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+    <string name="id_activo">
+        <![CDATA[
+            <b>ID del activo: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+    <string name="descripcion_activo">
+        <![CDATA[
+            <b>Descripción del activo: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+    <string name="estado_activo">
+        <![CDATA[
+            <b>Estado del activo: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+    <string name="ubicacion_activo">
+        <![CDATA[
+            <b>Ubicación del activo: </b> \n <br/>
+            %1$s
+        ]]>
+    </string>
+
+    <!-- STRINGS OPCION DE UBICACION -->
+
+    <string name="title_ubicacion">Ubicación</string>
+
+    <string name="oficina_op">Oficina</string>
+    <string name="proyecto_op">Proyecto</string>
+    <string name="bodega_op">Bodega</string>
+
+    <array name="ubicaciones">
+        <item>@string/oficina_op</item>
+        <item>@string/proyecto_op</item>
+        <item>@string/bodega_op</item>
+    </array>
+
+    <!-- STRINGS DIALOGO RE-ESCANEO -->
+    <string name="title_re_dialog">¿Volver a escanear?</string>
+    <string name="content_re">Este activo ya esta escaneado, \n desas volver a escanearlo?.</string>
+    <string name="re_escanear">Re-Escanear</string>
+
+    <!-- STRINGS DIALOGO RE-ESCANEO -->
+    <string name="title_add_new">Nuevo Activo</string>
+    <string name="content_add">Quieres agregarle un nuevo \n activo?.</string>
+    <string name="add_new">Agregar</string>
+    
+</resources>

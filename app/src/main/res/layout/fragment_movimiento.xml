@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gruporosul.activosfijos.fragment.MovimientoFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerMovimiento"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/no_hay_movimientos"
+        android:shadowColor="#8e4949"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="#009688"
+        android:textSize="50sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp" />
+
+</RelativeLayout>

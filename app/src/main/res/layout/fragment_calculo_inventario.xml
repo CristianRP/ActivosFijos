@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CalculoInventarioFragment"
+    android:padding="@dimen/activity_horizontal_margin">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtDesc"
+        android:text="@string/descripcion"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="25sp" />
+
+    <TextView
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/estado_calculo"
+        android:id="@+id/tvEstado"
+        android:layout_alignTop="@+id/separtador"
+        android:layout_toRightOf="@+id/separtador"
+        android:layout_toEndOf="@+id/separtador" />
+
+    <View
+        android:id="@+id/separtador"
+        android:background="#00ffffff"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerCalculoInventario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/separtador2"
+        android:layout_alignLeft="@+id/separtador2"
+        android:layout_alignStart="@+id/separtador2"
+        android:layout_above="@+id/btnContinuar" />
+
+    <View
+        android:id="@+id/separtador2"
+        android:background="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/txtDesc"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/continuar"
+        android:id="@+id/btnContinuar"
+        app:showOutline="true"
+        app:roundedCorners="true"
+        app:bootstrapBrand="danger"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/tvEstado"
+        android:layout_toStartOf="@+id/tvEstado"
+        android:layout_marginRight="5dp" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/enviar_inventario"
+        android:id="@+id/btnEnviarInventario"
+        app:showOutline="true"
+        app:bootstrapBrand="success"
+        app:roundedCorners="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/separtador"
+        android:layout_toEndOf="@+id/separtador"
+        android:layout_marginRight="5dp" />
+
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_ficha"
+            android:checked="true"
+            android:icon="@drawable/ic_ficha_colaborador"
+            android:title="@string/ficha_item" />
+
+        <item
+            android:id="@+id/nav_activo"
+            android:checked="true"
+            android:icon="@drawable/escanear_activo"
+            android:title="@string/nav_activo" />
+
+        <item
+            android:id="@+id/nav_movimiento"
+            android:checked="true"
+            android:icon="@drawable/ic_movimiento"
+            android:title="@string/movimientos_item" />
+
+        <item
+            android:id="@+id/nav_inventario"
+            android:icon="@drawable/ic_inventario"
+            android:title="@string/inventario_item"
+            android:checked="true"
+            >
+            <menu>
+                <item
+                    android:id="@+id/nav_departamento"
+                    android:title="@string/nav_departamento"
+                    android:icon="@drawable/ic_departamento"
+                    android:checked="true"
+                    />
+
+            </menu>
+
+        </item>
+
+        <!--item
+            android:id="@+id/nav_report"
+            android:checked="true"
+            android:icon="@drawable/ic_reporte"
+            android:title="@string/reportes_item" />
+
+        <item
+            android:id="@+id/nav_bitacora"
+            android:checked="true"
+            android:icon="@drawable/ic_bitacora"
+            android:title="@string/bitacora_item" /-->
+
+
+        <!-- Sección de configuración -->
+        <item
+            android:id="@+id/configuration_section"
+            android:title="@string/configuracion_item">
+            <menu>
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:icon="@drawable/ic_logout"
+                    android:title="@string/log_out_item" />
+            </menu>
+        </item>
+    </group>
+
+</menu>

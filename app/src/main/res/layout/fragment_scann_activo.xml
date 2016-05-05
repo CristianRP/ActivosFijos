@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gruporosul.activosfijos.fragment.ScannActivo">
+
+    <RelativeLayout
+        android:id="@+id/relativeScann"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtIdColaborador"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtNombre"
+                    android:layout_marginTop="40dp"
+                    android:layout_below="@+id/txtIdColaborador"
+                    android:layout_alignLeft="@+id/txtIdColaborador"
+                    android:layout_alignStart="@+id/txtIdColaborador" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtIdActivo"
+                    android:layout_below="@+id/txtNombre"
+                    android:layout_alignLeft="@+id/txtNombre"
+                    android:layout_alignStart="@+id/txtNombre"
+                    android:layout_marginTop="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtDescripcion"
+                    android:layout_below="@+id/txtIdActivo"
+                    android:layout_alignLeft="@+id/txtIdActivo"
+                    android:layout_alignStart="@+id/txtIdActivo"
+                    android:layout_marginTop="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtEstado"
+                    android:layout_below="@+id/txtDescripcion"
+                    android:layout_alignLeft="@+id/txtDescripcion"
+                    android:layout_alignStart="@+id/txtDescripcion"
+                    android:layout_marginTop="40dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/txtUbicacion"
+                    android:layout_below="@+id/txtEstado"
+                    android:layout_alignLeft="@+id/txtEstado"
+                    android:layout_alignStart="@+id/txtEstado"
+                    android:layout_marginTop="40dp" />
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@string/no_hay_activos"
+        android:shadowColor="#8e4949"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:textColor="#009688"
+        android:textSize="50sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp" />
+
+</RelativeLayout>

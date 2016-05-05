@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlCalculo"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <View
+        android:id="@+id/separador_horizontal"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/textColorPrimary"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtCalculoDesc"
+        android:layout_alignTop="@+id/separador_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtCalculoEstado"
+        android:layout_alignTop="@+id/separador_horizontal"
+        android:layout_toRightOf="@+id/separador_horizontal"
+        android:layout_toEndOf="@+id/separador_horizontal"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gruporosul.activosfijos.fragment.ResumenFragment"
+    android:padding="@dimen/activity_horizontal_margin">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txtTituloInventario"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/separador_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/txtTituloInventario"
+        android:layout_alignLeft="@+id/txtTituloInventario"
+        android:layout_alignStart="@+id/txtTituloInventario"
+        android:background="#5f5d5d" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/separador_1"
+        android:layout_alignLeft="@+id/separador_1"
+        android:layout_alignStart="@+id/separador_1"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/border"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/fecha"
+            android:id="@+id/txtFecha"
+            android:background="#4c666363" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtFechaValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@drawable/border"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_alignRight="@+id/separador_1"
+        android:layout_alignEnd="@+id/separador_1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/estado"
+            android:id="@+id/txtEstado"
+            android:background="#4c666363" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtEstadoValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/border"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/usuario"
+            android:id="@+id/txtUsuario"
+            android:background="#4c666363" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtUsuarioValue" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/border"
+        android:layout_alignTop="@+id/linearLayout2"
+        android:layout_alignRight="@+id/separador_1"
+        android:layout_alignEnd="@+id/separador_1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/ubicacion"
+            android:id="@+id/txtUbicacion"
+            android:background="#4c666363" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/txtUbicacionValue" />
+    </LinearLayout>
+
+    <com.dd.morphingbutton.MorphingButton
+        android:id="@+id/mbIniciar"
+        android:text="@string/iniciar_inventario"
+        android:layout_width="200dp" android:layout_height="60dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp" />
+
+</RelativeLayout>
