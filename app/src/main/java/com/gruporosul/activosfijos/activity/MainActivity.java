@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     public Fragment selectedFragment(String title) {
         Fragment fragment = new Fragment();
         if (title.equals(getString(R.string.nav_departamento))) {
-            if (!mPrefManager.getKeyUser().equals("lhernandez")) {
+            if (mPrefManager.getKeyUser().equals("lhernandez")) {
                 fragment = new FragmentDepartamento();
             } else {
                 Toast.makeText(MainActivity.this, "No tienes acceso a esta función!", Toast.LENGTH_SHORT).show();
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
+        mDrawerLayout.openDrawer(GravityCompat.START);
     }
 
     /*public void showExitDialog() {

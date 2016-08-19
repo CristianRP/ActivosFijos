@@ -14,7 +14,6 @@
     android:background="#384351"
     android:nestedScrollingEnabled="false">
 
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
