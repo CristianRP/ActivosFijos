@@ -13,6 +13,7 @@ import com.gruporosul.activosfijos.bean.ActivoFijo;
 import com.gruporosul.activosfijos.fragment.EscanearActivosFragment;
 
 import butterknife.Bind;
+import butterknife.BindColor;
 import butterknife.ButterKnife;
 
 /**
@@ -49,6 +50,8 @@ public class ActivoFijoAdapter extends RecyclerView.Adapter<ActivoFijoAdapter.Vi
         TextView txtEstadoActivo;
         @Bind(R.id.rlListado)
         RelativeLayout rlListado;
+        @BindColor(R.color.bootstrap_brand_danger)
+        int red;
 
 
         private ActivoFijoAdapter parent = null;
@@ -107,11 +110,11 @@ public class ActivoFijoAdapter extends RecyclerView.Adapter<ActivoFijoAdapter.Vi
         holder.txtEstadoActivo.setText(mActivo.getEstado());
         if (EscanearActivosFragment.escaneado) {
             if (EscanearActivosFragment.POSICION == position) {
-                holder.rlListado.setBackgroundResource(R.color.bootstrap_brand_info);
+                //holder.txtEstadoActivo.setTextColor(R.color.bootstrap_brand_info);
                 EscanearActivosFragment.escaneado = false;
             }
         } else {
-            holder.rlListado.setBackgroundResource(R.color.bootstrap_brand_danger);
+            holder.txtEstadoActivo.setTextColor(holder.red);
         }
 
 

@@ -1,6 +1,7 @@
 package com.gruporosul.activosfijos.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -10,6 +11,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -76,6 +78,7 @@ public class FichaColaboradorFragment extends Fragment {
         } else {
             scannUser(mSearchCodigo.getText().toString());
             mSearchCodigo.setText("");
+            hideKeyboard(getView());
         }
 
     }
@@ -137,6 +140,17 @@ public class FichaColaboradorFragment extends Fragment {
 
         mFragmentTransaction.commit();
 
+    }
+
+
+    /**
+     * Esconde el teclado al momento de presionar el botón buscar
+     * @param v
+     */
+    private void hideKeyboard(View v) {
+        InputMethodManager tecladoVirtual =
+                (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE );
+        tecladoVirtual.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
 }

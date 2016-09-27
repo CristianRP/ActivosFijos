@@ -16,7 +16,7 @@
             android:icon="@drawable/escanear_activo"
             android:title="@string/nav_activo" />
 
-        <item
+        <!--item
             android:id="@+id/nav_movimiento"
             android:checked="true"
             android:icon="@drawable/ic_movimiento"
@@ -38,7 +38,7 @@
 
             </menu>
 
-        </item>
+        </item-->
 
         <!--item
             android:id="@+id/nav_report"
@@ -54,7 +54,7 @@
 
 
         <!-- Sección de configuración -->
-        <item
+        <!--item
             android:id="@+id/configuration_section"
             android:title="@string/configuracion_item">
             <menu>
@@ -63,7 +63,7 @@
                     android:icon="@drawable/ic_logout"
                     android:title="@string/log_out_item" />
             </menu>
-        </item>
+        </item-->
     </group>
 
 </menu>

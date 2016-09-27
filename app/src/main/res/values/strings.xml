@@ -48,7 +48,7 @@
     <string name="enviar_inventario">Enviar Inventario</string>
 
     <!--Strings dialogs -->
-    <string name="escanear">\t <b>Escanear</b></string>
+    <string name="escanear">Escanear</string>
     <string name="ingresar_codigo">\t <b>Ingresar Codigo</b></string>
     <string name="ver_detalle">\t <b>Ver detalle del activo</b></string>
     <array name="list_options">
@@ -185,5 +185,7 @@
     <string name="title_add_new">Nuevo Activo</string>
     <string name="content_add">Quieres agregarle un nuevo \n activo?.</string>
     <string name="add_new">Agregar</string>
-    
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="detail_string">%1$s: %2$s</string>
+
 </resources>

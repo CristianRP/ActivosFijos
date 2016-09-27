@@ -28,7 +28,13 @@
             android:text="@string/regresar_home"
             android:id="@+id/btnInicio"
             android:layout_below="@+id/title"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:drawableLeft="@drawable/ic_arrow_back" />
     </RelativeLayout>
 
 </FrameLayout>

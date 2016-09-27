@@ -44,11 +44,14 @@
 
         <com.dd.morphingbutton.MorphingButton
             android:id="@+id/searchCodigo"
+            android:padding="5dp"
             android:text="@string/buscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:drawableLeft="@drawable/ic_search" />
 
     </LinearLayout>
 
@@ -86,11 +89,14 @@
         <com.dd.morphingbutton.MorphingButton
             android:id="@+id/escanearCodigo"
             android:text="@string/escanear"
+            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:paddingRight="10dp"
-            android:layout_marginTop="16dp" />
+            android:drawableLeft="@drawable/ic_assignment"
+            android:layout_marginTop="16dp"
+            android:textAlignment="center" />
 
     </LinearLayout>
 </RelativeLayout>

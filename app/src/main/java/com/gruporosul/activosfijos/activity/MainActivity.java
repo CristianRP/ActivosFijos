@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.gruporosul.activosfijos.R;
+import com.gruporosul.activosfijos.bean.ActivoFijo;
 import com.gruporosul.activosfijos.fragment.FichaColaboradorFragment;
 import com.gruporosul.activosfijos.fragment.FragmentDepartamento;
 import com.gruporosul.activosfijos.fragment.ScannActivo;
@@ -182,7 +183,12 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "No tienes acceso a esta función!", Toast.LENGTH_SHORT).show();
             }
         } else if (title.equals(getString(R.string.ficha_item))) {
-            fragment = new FichaColaboradorFragment();
+            if (ActivoFijo.ACTIVOS_FIJOS.isEmpty()) {
+                fragment = new FichaColaboradorFragment();
+            } else {
+                ActivoFijo.ACTIVOS_FIJOS.clear();
+                fragment = new FichaColaboradorFragment();
+            }
         } else if (title.equals(getString(R.string.movimientos_item))) {
             fragment = new UsuarioFragment();
         } else if (title.equals(getString(R.string.nav_activo))) {

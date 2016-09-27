@@ -27,6 +27,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.gruporosul.activosfijos.R;
+import com.gruporosul.activosfijos.activity.DetailActivity;
 import com.gruporosul.activosfijos.activity.DividerItemDecoration;
 import com.gruporosul.activosfijos.adapter.ActivoFijoAdapter;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
@@ -45,6 +46,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
+
+import static com.gruporosul.activosfijos.bean.ActivoFijo.ACTIVOS_FIJOS;
 
 /**
  * Created by Cristian Ramírez on 17-Dec-15.
@@ -144,7 +147,11 @@ public class ActivosFragment extends Fragment
 
     @Override
     public void onItemClick(ActivoFijoAdapter.ViewHolder item, int position) {
-        Toast.makeText(getActivity(), "Detalle", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "Detalle", Toast.LENGTH_SHORT).show();
+        ActivoFijo activo = ActivoFijo.ACTIVOS_FIJOS.get(position);
+        Intent activos = new Intent(getActivity(), DetailActivity.class);
+        activos.putExtra("idActivo", activo.getIdActivo());
+        startActivity(activos);
     }
 
     @Override
@@ -223,13 +230,13 @@ public class ActivosFragment extends Fragment
                     mRecyclerView.setVisibility(View.VISIBLE);
                     empty_view.setVisibility(View.GONE);
 
-                    ActivoFijo.ACTIVOS_FIJOS = items;
+                    ACTIVOS_FIJOS = items;
 
                     mAdaptador.notifyDataSetChanged();
                     mProgressDialog.dismiss();
 
                     getActivity().invalidateOptionsMenu();
-                    getActivity().setTitle(getString(R.string.title_listado, ActivoFijo.ACTIVOS_FIJOS.get(0).getColaborador()));
+                    getActivity().setTitle(getString(R.string.title_listado, ACTIVOS_FIJOS.get(0).getColaborador()));
                 }
             } catch (NullPointerException ex) {
                 ex.printStackTrace();
@@ -330,7 +337,7 @@ public class ActivosFragment extends Fragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        clear(ActivoFijo.ACTIVOS_FIJOS);
+        clear(ACTIVOS_FIJOS);
     }
 
     private String toast;
@@ -367,7 +374,7 @@ public class ActivosFragment extends Fragment
     }
 
     public void escanearActivo(int position) {
-        ActivoFijo mActivo = ActivoFijo.ACTIVOS_FIJOS.get(position);
+        ActivoFijo mActivo = ACTIVOS_FIJOS.get(position);
         descripcion = mActivo.getDescripcion();
         estado = mActivo.getEstado();
         IntentIntegrator integrator = IntentIntegrator.forSupportFragment(this);
