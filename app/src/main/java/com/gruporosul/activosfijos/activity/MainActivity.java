@@ -24,6 +24,7 @@ import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
 import com.gruporosul.activosfijos.fragment.FichaColaboradorFragment;
 import com.gruporosul.activosfijos.fragment.FragmentDepartamento;
+import com.gruporosul.activosfijos.fragment.MisActivosFragment;
 import com.gruporosul.activosfijos.fragment.ScannActivo;
 import com.gruporosul.activosfijos.fragment.UsuarioFragment;
 import com.gruporosul.activosfijos.preferences.PrefManager;
@@ -197,6 +198,8 @@ public class MainActivity extends AppCompatActivity {
             mPrefManager.logout();
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
+        } else if (title.equals(getString(R.string.mis_activos))) {
+            fragment = new MisActivosFragment();
         }
 
         return fragment;

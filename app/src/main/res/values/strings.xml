@@ -31,6 +31,8 @@
     <string name="nav_departamento">Departamento</string>
     <string name="nav_usuario">Usuario</string>
     <string name="nav_activo">Escanear Activo</string>
+    <string name="mis_activos">Mis Activos</string>
+    <string name="aprovacion">Aprobación de Movimientos</string>
 
     <!--Strings fragments-->
     <string name="title_usuarios">Usuarios</string>
@@ -187,5 +189,18 @@
     <string name="add_new">Agregar</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="detail_string">%1$s: %2$s</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- Movimientos -->
+    <string name="motivo">Motivo</string>
+    <string name="responsable">Responsable:</string>
+    <string name="nueva_ubicacion">Nueva Ubicación</string>
+    <string name="is_provitional">Es un movimiento provisional?</string>
+    <string name="nuevo_responsable">Nuevo Responsable</string>
+    <string name="seleccionar_ubicacion">Seleccionar Ubicación</string>
+    <string name="title_activity_location">LocationActivity</string>
 
 </resources>

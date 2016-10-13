@@ -16,6 +16,27 @@
             android:icon="@drawable/escanear_activo"
             android:title="@string/nav_activo" />
 
+        <item
+            android:id="@+id/nav_movimientos"
+            android:checked="true"
+            android:icon="@drawable/ic_movimiento"
+            android:title="@string/movimientos_item">
+            <menu>
+                <item
+                    android:id="@+id/mis_activos"
+                    android:checked="true"
+                    android:icon="@drawable/ic_devices"
+                    android:title="@string/mis_activos" />
+
+                <item
+                    android:id="@+id/aprovacion_movimientos"
+                    android:checked="true"
+                    android:icon="@drawable/ic_check_circle"
+                    android:title="@string/aprovacion" />
+
+            </menu>
+        </item>
+
         <!--item
             android:id="@+id/nav_movimiento"
             android:checked="true"
