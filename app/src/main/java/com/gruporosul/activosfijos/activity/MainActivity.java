@@ -2,6 +2,7 @@ package com.gruporosul.activosfijos.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
@@ -73,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         //setUserName();
 
         setToolbar(); //Setear toolbar como action bar
+
+        if (mPrefManager.isLoggedIn()) {
+            mNavigationView.getMenu().findItem(R.id.configuration_section).setVisible(true);
+        }
 
         if (mNavigationView != null) {
             setupDrawerContent(mNavigationView);
@@ -145,17 +152,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     /**
      * Cambio de fragments, segun el item seleccionado
      * @param title
@@ -195,11 +191,26 @@ public class MainActivity extends AppCompatActivity {
         } else if (title.equals(getString(R.string.nav_activo))) {
             fragment = new ScannActivo();
         } else if (title.equals(getString(R.string.log_out_item))) {
-            mPrefManager.logout();
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
+            new MaterialDialog.Builder(this)
+                    .title("Activos Fijos")
+                    .content("Quieres cerra la sesión actual?")
+                    .positiveText("Cerrar sesión")
+                    .negativeText("Cancelar")
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            mPrefManager.logout();
+                            startActivity(new Intent(MainActivity.this, MainActivity.class));
+                            finish();
+                        }
+                    })
+                    .show();
         } else if (title.equals(getString(R.string.mis_activos))) {
             fragment = new MisActivosFragment();
+            //startActivity(new Intent(MainActivity.this, LocationActivity.class));
+        } else if (title.equals(getString(R.string.inventario_item))) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
         }
 
         return fragment;

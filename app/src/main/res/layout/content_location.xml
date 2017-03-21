@@ -13,4 +13,26 @@
     tools:context="com.gruporosul.activosfijos.activity.LocationActivity"
     tools:showIn="@layout/activity_location">
 
+    <android.support.v7.widget.SearchView
+        android:id="@+id/search"
+        android:layout_gravity="center_vertical"
+        android:queryHint="@string/search_ubicacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.SearchView>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_below="@id/search"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_divider_black" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerUbicaciones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/separator"/>
+
 </RelativeLayout>

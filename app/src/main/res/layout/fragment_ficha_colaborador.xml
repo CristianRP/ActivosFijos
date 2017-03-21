@@ -29,10 +29,13 @@
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/text_layout_codigo"
+            android:textColorHint="@color/textColorSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
+                android:textColor="@color/textColorSecondary"
+                android:textColorHint="@color/textColorSecondary"
                 android:id="@+id/txtCodigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,16 +45,18 @@
 
         </android.support.design.widget.TextInputLayout>
 
-        <com.dd.morphingbutton.MorphingButton
+        <Button
             android:id="@+id/searchCodigo"
-            android:padding="5dp"
-            android:text="@string/buscar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
+            android:padding="10dp"
             android:textAlignment="center"
-            android:drawableLeft="@drawable/ic_search" />
+            android:text="@string/buscar"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_corners"
+            android:drawableLeft="@drawable/ic_search"/>
+
 
     </LinearLayout>
 
@@ -86,17 +91,18 @@
             android:layout_marginTop="20dp"
             android:textStyle="bold" />
 
-        <com.dd.morphingbutton.MorphingButton
+        <Button
             android:id="@+id/escanearCodigo"
-            android:text="@string/escanear"
-            android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:paddingRight="10dp"
-            android:drawableLeft="@drawable/ic_assignment"
-            android:layout_marginTop="16dp"
-            android:textAlignment="center" />
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:text="@string/escanear"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_corners"
+            android:drawableLeft="@drawable/ic_assignment"/>
+
 
     </LinearLayout>
 </RelativeLayout>

@@ -28,42 +28,57 @@
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
-        fab:menu_labels_ellipsize="end"
-        fab:menu_labels_singleLine="true"
-        fab:menu_backgroundColor="#ccffffff"
-        fab:menu_fab_label="Menu label">
+        app:menu_labels_ellipsize="end"
+        app:menu_labels_singleLine="true"
+        app:menu_backgroundColor="#50000000"
+        app:menu_colorNormal="@color/colorAccent"
+        app:menu_colorPressed="@color/colorAccent"
+        app:menu_colorRipple="@color/colorAccent"
+        app:menu_fab_label="@string/tipo_movimiento">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_cambio_ubicacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_file_transfer"
-            fab:fab_size="mini"
-            fab:fab_label="Disabled" />
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_colorRipple="@color/colorAccent"
+            app:fab_size="normal"
+            app:fab_label="@string/cambio_ubicacion" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_solicitud_baja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baja"
-            fab:fab_size="mini"
-            fab:fab_label="Disabled" />
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_colorRipple="@color/colorAccent"
+            app:fab_size="normal"
+            app:fab_label="@string/solicitud_baja" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_traslados"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_user_traslados"
-            fab:fab_size="mini"
-            fab:fab_label="Remove button" />
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_colorRipple="@color/colorAccent"
+            app:fab_size="normal"
+            app:fab_label="@string/traslados" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fab_ubicacion_responsable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_user_transfer"
-            fab:fab_size="mini"
-            fab:fab_label="Restore Button" />
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccent"
+            app:fab_colorRipple="@color/colorAccent"
+            app:fab_size="normal"
+            app:fab_label="@string/traslados_resposable" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

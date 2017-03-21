@@ -1,9 +1,8 @@
 package com.gruporosul.activosfijos.xml;
 
-import android.util.Log;
 import android.util.Xml;
 
-import com.gruporosul.activosfijos.bean.Identificador;
+import com.gruporosul.activosfijos.bean.Encabezado;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -21,12 +20,13 @@ import java.util.List;
 public class ParserXmlEncabezadoId {
 
     private static final String ns = null;
-    private static final String ETIQUETA_ARRAY = "ArrayOfIdentificador_Inventario";
-    private static final String ETIQUETA_ITEM = "Identificador_Inventario";
+    private static final String ETIQUETA_ARRAY = "ArrayOfEncabezado";
+    private static final String ETIQUETA_ITEM = "Encabezado";
 
-    private static final String ETIQUETA_TOTAL = "total";
+    private static final String ETIQUETA_ID_ENCABEZADO = "idEncabecado";
+    public static int ID_ENCABEZADO = 0;
 
-    public List<Identificador> parsear(InputStream in) throws XmlPullParserException, IOException {
+    public List<Encabezado> parsear(InputStream in) throws XmlPullParserException, IOException {
 
         try {
             XmlPullParser xmlPullParser = Xml.newPullParser();
@@ -40,10 +40,10 @@ public class ParserXmlEncabezadoId {
 
     }
 
-    private List<Identificador> leerItems(XmlPullParser xmlPullParser)
+    private List<Encabezado> leerItems(XmlPullParser xmlPullParser)
             throws XmlPullParserException, IOException {
 
-        List<Identificador> identificadors = new ArrayList<>();
+        List<Encabezado> identificadors = new ArrayList<>();
 
         xmlPullParser.require(XmlPullParser.START_TAG, ns, ETIQUETA_ARRAY);
 
@@ -67,12 +67,12 @@ public class ParserXmlEncabezadoId {
 
     }
 
-    private Identificador leerItem(XmlPullParser pullParser)
+    private Encabezado leerItem(XmlPullParser pullParser)
             throws XmlPullParserException, IOException {
 
         pullParser.require(XmlPullParser.START_TAG, ns, ETIQUETA_ITEM);
 
-        String identificador = null;
+        int identificador = 0;
 
         while (pullParser.next() != XmlPullParser.END_TAG) {
 
@@ -83,9 +83,9 @@ public class ParserXmlEncabezadoId {
             String name = pullParser.getName();
 
             switch (name) {
-                case ETIQUETA_TOTAL:
+                case ETIQUETA_ID_ENCABEZADO:
                     identificador = leerId(pullParser);
-                    Log.e("ID", identificador);
+                    ID_ENCABEZADO = identificador;
                     break;
                 default:
                     saltarEtiqueta(pullParser);
@@ -94,17 +94,17 @@ public class ParserXmlEncabezadoId {
 
         }
 
-        return new Identificador(
+        return new Encabezado(
                 identificador
         );
     }
 
-    private String leerId(XmlPullParser pullParser)
+    private int leerId(XmlPullParser pullParser)
             throws XmlPullParserException, IOException {
 
-        pullParser.require(XmlPullParser.START_TAG, ns, ETIQUETA_TOTAL);
-        String id = obtenerTexto(pullParser);
-        pullParser.require(XmlPullParser.END_TAG, ns, ETIQUETA_TOTAL);
+        pullParser.require(XmlPullParser.START_TAG, ns, ETIQUETA_ID_ENCABEZADO);
+        int id = Integer.parseInt(obtenerTexto(pullParser));
+        pullParser.require(XmlPullParser.END_TAG, ns, ETIQUETA_ID_ENCABEZADO);
         return id;
 
     }

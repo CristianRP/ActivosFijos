@@ -13,4 +13,52 @@
     tools:context="com.gruporosul.activosfijos.activity.InventarioActivity"
     tools:showIn="@layout/activity_inventario">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleActivos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_inventario"
+            android:textSize="30sp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            android:textStyle="bold"/>
+
+        <View
+            android:background="@color/md_divider_black"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
+        <TextView
+            android:id="@+id/titleColaborador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/title_selecc_colaborador"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_horizontal_margin"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"/>
+
+        <Button
+            android:id="@+id/btnSeleccionarColaborador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/selecc_colaborador"
+            android:textColor="#ffff"
+            android:background="@drawable/rounded_corners_btn"/>
+
+        <TextView
+            android:id="@+id/txtColaborador"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp"
+            android:layout_gravity="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            />
+
+    </LinearLayout>
+
 </RelativeLayout>

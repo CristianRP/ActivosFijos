@@ -33,12 +33,28 @@
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme" />
         <activity
-            android:name=".activity.Main2Activity"
+            android:name=".activity.MovementActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".activity.LocationActivity"
             android:label="@string/title_activity_location"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.FichasActivity"
+            android:label="@string/title_activity_fichas"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.InventarioActivity"
+            android:label="@string/title_activity_inventario"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.EscanearActivity"
+            android:label="@string/title_activity_escanear"
+            android:theme="@style/MyMaterialTheme" />
+        <activity
+            android:name=".activity.AprobarInventario"
+            android:label="@string/title_activity_aprobar_inventario"
             android:theme="@style/MyMaterialTheme"></activity>
     </application>
 

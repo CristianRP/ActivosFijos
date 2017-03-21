@@ -2,11 +2,11 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/ic_notification"
-        android:drawable="@drawable/ic_usuario"
+        android:drawable="@drawable/ic_lista_handraw"
         android:gravity="center" />
 
-    <!-- Insignia flotante -->
+    <!-- Insignia flotante-->
     <item
         android:id="@+id/ic_badge"
-        android:drawable="@android:drawable/ic_dialog_info" />
+        android:drawable="@drawable/ic_lista_handraw"/>
 </layer-list>

@@ -13,4 +13,36 @@
     tools:context="com.gruporosul.activosfijos.activity.AprobarInventario"
     tools:showIn="@layout/activity_aprobar_inventario">
 
+    <LinearLayout
+        android:id="@+id/emptyView"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_advertencia"/>
+
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/titleEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_op_menu_inventario"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerAprobacionInventario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
 </RelativeLayout>

@@ -202,5 +202,44 @@
     <string name="nuevo_responsable">Nuevo Responsable</string>
     <string name="seleccionar_ubicacion">Seleccionar Ubicación</string>
     <string name="title_activity_location">LocationActivity</string>
+    <string name="title_send_movimientos">Enviar movimiento</string>
+    <string name="search_ubicacion">Buscar</string>
+    <string name="cambio_ubicacion">Cambio de Ubicación</string>
+    <string name="solicitud_baja">Solicitud de Baja</string>
+    <string name="traslados">Traslados</string>
+    <string name="traslados_resposable">Tralados ubicación y responsable</string>
+    <string name="tipo_movimiento">Tipo de Movimiento</string>
+
+    <!-- Ubicación -->
+    <string name="search_hint">Buscar&#8230;</string>
+    <string name="cod_ubicacion">Código: %1$s</string>
+    <string name="location_description">%1$s</string>
+    <string name="location_parent_description">Padre: %1$s</string>
+
+    <!--Fichas -->
+    <string name="title_activity_fichas">FichasActivity</string>
+    <string name="codFicha">Cod. Ficha: %1$d</string>
+    <string name="depto">Departamento: %1$s</string>
+    <string name="title_activity_inventario">Inventario</string>
+
+    <!--Inventario-->
+    <string name="title_inventario">Realizar nuevo inventario</string>
+    <string name="title_selecc_colaborador">Colaborador:</string>
+    <string name="selecc_colaborador">Elegir colaborador</string>
+    <string name="enviar_invetario">Enviar</string>
+    <string name="title_activity_escanear">EscanearActivity</string>
+    <string name="title_empty">No has escaneado ningún activo.</string>
+    <string name="nav_op_menu_inventario">Inventario</string>
+    <string name="fab_escanear">Escanear activo</string>
+    <string name="title_activity_aprobar_inventario">AprobarInventario</string>
+    <string name="fab_procesar">Procesar</string>
+    <string name="listado_colaboradores">Listado de Colaboradores</string>
+    <string name="escanear_canet">Escanear gafete</string>
+    <array name="op_menu_colaborador">
+        <item>@string/listado_colaboradores</item>
+        <item>@string/escanear_canet</item>
+    </array>
+
+
 
 </resources>

@@ -31,8 +31,8 @@ import butterknife.ButterKnife;
 
 public class MovementActivity extends AppCompatActivity {
 
-    @Bind(R.id.content_main2)
-    LinearLayout contentMain2;
+    @Bind(R.id.content_move)
+    LinearLayout mContentMovimiento;
     @BindString(R.string.motivo)
     String motivo;
     @BindString(R.string.responsable)
@@ -47,55 +47,153 @@ public class MovementActivity extends AppCompatActivity {
     String seleccionarUbicacion;
 
     private static float gravity = 17f;
+    private final static int CAMBIO_UBICACION = 0;
+    private final static int SOLICITUD_BAJA = 1;
+    private final static int TRASLADOS = 2;
+    private final static int TRASLADOS_RESPONSABLE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_movement);
         ButterKnife.bind(this);
 
         setToolbar();
 
         Intent tipo = getIntent();
-        Intent activos = getIntent();
         float scale = getResources().getDisplayMetrics().density;
         int dpAsPixels = (int) (5 * scale + 0.5f);
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
 
         Activo mActivo = Activo.MIS_ACTIVOS.get(0);
-        if (tipo.getStringExtra("tipo").equals("ubicacion")) {
-            TextView txtFecha = createTextViews("Fecha: " + dateFormat.format(date), dpAsPixels);
-            TextInputLayout txtMotivo = createTextInputLayout(motivo);
-            TextView tvResponsable = createTextViews(responsable, dpAsPixels);
-            TextView tvNombre = createTextViews(mActivo.getnFicha(), dpAsPixels);
-            TextView tvCodFicha = createTextViews(Integer.toString(mActivo.getCodFicha()), dpAsPixels);
-            TextView tvNuevaUbicacion = createTextViews(nuevaUbicacion, dpAsPixels);
-            CheckBox checkBoxProvisional = createCheckBoxes(isProvitional, dpAsPixels);
-            Button btnUbicacion = createButtons(seleccionarUbicacion, dpAsPixels);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-            );
-            params.gravity = Gravity.END;
-            txtFecha.setLayoutParams(params);
-            tvCodFicha.setLayoutParams(params);
-            contentMain2.addView(txtFecha);
-            contentMain2.addView(tvResponsable);
-            contentMain2.addView(tvCodFicha);
-            contentMain2.addView(tvNombre);
-            contentMain2.addView(txtMotivo);
-            contentMain2.addView(tvNuevaUbicacion);
-            contentMain2.addView(btnUbicacion);
-            contentMain2.addView(checkBoxProvisional);
-
-            btnUbicacion.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MovementActivity.this, LocationActivity.class));
-                }
-            });
+        switch (tipo.getIntExtra("tipo", 0)) {
+            case CAMBIO_UBICACION:
+                cambioUbicacion(mActivo, dpAsPixels, dateFormat, date);
+                break;
+            case SOLICITUD_BAJA:
+                solicitudBaja(mActivo, dpAsPixels, dateFormat, date);
+                break;
+            case TRASLADOS:
+                solicitudTraslados(mActivo, dpAsPixels, dateFormat, date);
+                break;
+            case TRASLADOS_RESPONSABLE:
+                solicitudTrasladoResponsable(mActivo, dpAsPixels, dateFormat, date);
+                break;
         }
+    }
 
+    private void cambioUbicacion(Activo mActivo, int dpAsPixels, DateFormat dateFormat, Date date) {
+        TextView txtFecha = createTextViews("Fecha: " + dateFormat.format(date), dpAsPixels);
+        TextInputLayout txtMotivo = createTextInputLayout(motivo);
+        TextView tvResponsable = createTextViews(responsable, dpAsPixels);
+        TextView tvNombre = createTextViews(mActivo.getnFicha(), dpAsPixels);
+        TextView tvCodFicha = createTextViews(Integer.toString(mActivo.getCodFicha()), dpAsPixels);
+        TextView tvNuevaUbicacion = createTextViews(nuevaUbicacion, dpAsPixels);
+        CheckBox checkBoxProvisional = createCheckBoxes(isProvitional, dpAsPixels);
+        Button btnUbicacion = createButtons(seleccionarUbicacion, dpAsPixels);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.END;
+        txtFecha.setLayoutParams(params);
+        tvCodFicha.setLayoutParams(params);
+        mContentMovimiento.addView(txtFecha);
+        mContentMovimiento.addView(tvResponsable);
+        mContentMovimiento.addView(tvCodFicha);
+        mContentMovimiento.addView(tvNombre);
+        mContentMovimiento.addView(txtMotivo);
+        mContentMovimiento.addView(tvNuevaUbicacion);
+        mContentMovimiento.addView(btnUbicacion);
+        mContentMovimiento.addView(checkBoxProvisional);
+
+        btnUbicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MovementActivity.this, LocationActivity.class));
+            }
+        });
+    }
+
+    private void solicitudBaja(Activo mActivo, int dpAsPixels, DateFormat dateFormat, Date date) {
+        TextView txtFecha = createTextViews("Fecha: " + dateFormat.format(date), dpAsPixels);
+        TextInputLayout txtMotivo = createTextInputLayout(motivo);
+        TextView tvResponsable = createTextViews(responsable, dpAsPixels);
+        TextView tvNombre = createTextViews(mActivo.getnFicha(), dpAsPixels);
+        TextView tvCodFicha = createTextViews(Integer.toString(mActivo.getCodFicha()), dpAsPixels);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.END;
+        txtFecha.setLayoutParams(params);
+        tvCodFicha.setLayoutParams(params);
+        mContentMovimiento.addView(txtFecha);
+        mContentMovimiento.addView(tvResponsable);
+        mContentMovimiento.addView(tvCodFicha);
+        mContentMovimiento.addView(tvNombre);
+        mContentMovimiento.addView(txtMotivo);
+    }
+
+    private void solicitudTraslados(Activo mActivo, int dpAsPixels, DateFormat dateFormat, Date date) {
+        TextView txtFecha = createTextViews("Fecha: " + dateFormat.format(date), dpAsPixels);
+        TextInputLayout txtMotivo = createTextInputLayout(motivo);
+        TextView tvResponsable = createTextViews(responsable, dpAsPixels);
+        TextView tvNombre = createTextViews(mActivo.getnFicha(), dpAsPixels);
+        TextView tvCodFicha = createTextViews(Integer.toString(mActivo.getCodFicha()), dpAsPixels);
+        Button btnResponsable = createButtons(nuevoResponsable, dpAsPixels);
+        TextView tvNuevoResponsable = createTextViews(nuevoResponsable, dpAsPixels);
+        CheckBox checkBoxProvisional = createCheckBoxes(isProvitional, dpAsPixels);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.END;
+        txtFecha.setLayoutParams(params);
+        tvCodFicha.setLayoutParams(params);
+        mContentMovimiento.addView(txtFecha);
+        mContentMovimiento.addView(tvResponsable);
+        mContentMovimiento.addView(tvCodFicha);
+        mContentMovimiento.addView(tvNombre);
+        mContentMovimiento.addView(txtMotivo);
+        mContentMovimiento.addView(tvNuevoResponsable);
+        mContentMovimiento.addView(btnResponsable);
+        mContentMovimiento.addView(checkBoxProvisional);
+    }
+
+    private void solicitudTrasladoResponsable(Activo mActivo, int dpAsPixels, DateFormat dateFormat,
+                                              Date date) {
+        TextView tvFecha = createTextViews("Fecha: " + dateFormat.format(date), dpAsPixels);
+        TextView tvCodFicha = createTextViews(Integer.toString(mActivo.getCodFicha()), dpAsPixels);
+        TextView tvResponsable = createTextViews(responsable, dpAsPixels);
+        TextView tvNombre = createTextViews(mActivo.getnFicha(), dpAsPixels);
+        TextInputLayout txtMotivo = createTextInputLayout(motivo);
+        TextView tvNuevoResponsable = createTextViews(nuevoResponsable, dpAsPixels);
+        Button btnResponsable = createButtons(nuevoResponsable, dpAsPixels);
+        TextView tvNuevaUbicacion = createTextViews(nuevaUbicacion, dpAsPixels);
+        Button btnUbicacion = createButtons(seleccionarUbicacion, dpAsPixels);
+        CheckBox checkBoxProvisional = createCheckBoxes(isProvitional, dpAsPixels);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.END;
+        tvFecha.setLayoutParams(params);
+        tvCodFicha.setLayoutParams(params);
+        mContentMovimiento.addView(tvFecha);
+        mContentMovimiento.addView(tvResponsable);
+        mContentMovimiento.addView(tvCodFicha);
+        mContentMovimiento.addView(tvNombre);
+        mContentMovimiento.addView(txtMotivo);
+        mContentMovimiento.addView(tvNuevoResponsable);
+        mContentMovimiento.addView(btnResponsable);
+        mContentMovimiento.addView(tvNuevaUbicacion);
+        mContentMovimiento.addView(btnUbicacion);
+        mContentMovimiento.addView(checkBoxProvisional);
+
+        btnUbicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MovementActivity.this, LocationActivity.class));
+            }
+        });
     }
 
     private void setToolbar() {

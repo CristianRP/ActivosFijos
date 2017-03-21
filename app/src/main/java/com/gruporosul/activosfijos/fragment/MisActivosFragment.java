@@ -20,7 +20,7 @@ import com.davidecirillo.multichoicerecyclerview.listeners.MultiChoiceSelectionL
 import com.github.clans.fab.FloatingActionButton;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.activity.DividerItemDecoration;
-import com.gruporosul.activosfijos.activity.Main2Activity;
+import com.gruporosul.activosfijos.activity.MovementActivity;
 import com.gruporosul.activosfijos.adapter.MisActivosAdapter;
 import com.gruporosul.activosfijos.bean.Activo;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
@@ -55,11 +55,21 @@ public class MisActivosFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     @Bind(R.id.fab_cambio_ubicacion)
     FloatingActionButton fabCambioUbicacion;
+    @Bind(R.id.fab_solicitud_baja)
+    FloatingActionButton fabSolicitudBaja;
+    @Bind(R.id.fab_traslados)
+    FloatingActionButton fabTraslados;
+    @Bind(R.id.fab_ubicacion_responsable)
+    FloatingActionButton fabUbicacionResponsable;
     private String mParam1;
     private String mParam2;
     private ProgressDialog mProgressDialog;
     private PrefManager mPrefManager;
     private MisActivosAdapter mAdapter;
+    private static int CAMBIO_UBICACION = 0;
+    private static int SOLICITUD_BAJA = 1;
+    private static int TRASLADOS = 2;
+    private static int TRASLADOS_RESPONSABLE = 3;
 
     private static String get_activos = "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_activos?user_name=cramirez";
 
@@ -146,11 +156,38 @@ public class MisActivosFragment extends Fragment {
         fabCambioUbicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for (Activo actio: activos) {
+                for (Activo actio : activos) {
                     Log.e(":v lista", "holi :v :" + actio.getIdActivo() + " " + actio.getDescripcion());
                 }
-                Intent tipoMovimiento = new Intent(getActivity(), Main2Activity.class);
-                tipoMovimiento.putExtra("tipo", "ubicacion");
+                Intent tipoMovimiento = new Intent(getActivity(), MovementActivity.class);
+                tipoMovimiento.putExtra("tipo", CAMBIO_UBICACION);
+                startActivity(tipoMovimiento);
+            }
+        });
+
+        fabSolicitudBaja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tipoMovimiento = new Intent(getActivity(), MovementActivity.class);
+                tipoMovimiento.putExtra("tipo", SOLICITUD_BAJA);
+                startActivity(tipoMovimiento);
+            }
+        });
+
+        fabTraslados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tipoMovimiento = new Intent(getActivity(), MovementActivity.class);
+                tipoMovimiento.putExtra("tipo", TRASLADOS);
+                startActivity(tipoMovimiento);
+            }
+        });
+
+        fabUbicacionResponsable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tipoMovimiento = new Intent(getActivity(), MovementActivity.class);
+                tipoMovimiento.putExtra("tipo", TRASLADOS_RESPONSABLE);
                 startActivity(tipoMovimiento);
             }
         });

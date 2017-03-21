@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         mPrefManager = new PrefManager(getApplicationContext());
 
         if (mPrefManager.isLoggedIn()) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
             finish();
         }
 
@@ -192,8 +192,9 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d(TAG, response);
                         mProgressDialog.dismiss();
                         if (!TextUtils.isEmpty(response) && !response.contains("error")) {
-                            mPrefManager.createLoginSession(username, password, idDispositivo);
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            isEncargado(username, password, idDispositivo);
+                            mPrefManager.createLoginSession(username, password, idDispositivo, false);
+                            startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
                             finish();
                         } else {
                             showSnackbar(mCoodinatorLogin, getString(R.string.login_error));
@@ -238,6 +239,39 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 }).show();
+    }
+
+    private void isEncargado(final String username, final String password, final String idDispositivo) {
+        StringRequest isEncardadoRequest = new StringRequest(
+                Request.Method.POST,
+                "http://200.30.160.117:8070/Servicioclientes.asmx/get_is_encargado_activos",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (response.contains("true")) {
+                            mPrefManager.createLoginSession(username, password, idDispositivo, true);
+                            startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
+                            finish();
+                        } else {
+                            mPrefManager.createLoginSession(username, password, idDispositivo, false);
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("value", username);
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(isEncardadoRequest);
     }
 
 }

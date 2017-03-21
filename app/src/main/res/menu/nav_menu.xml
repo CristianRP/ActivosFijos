@@ -37,6 +37,19 @@
             </menu>
         </item>
 
+        <item
+            android:id="@+id/nav_inventario"
+            android:checked="true"
+            android:title="@string/nav_op_menu_inventario">
+            <menu>
+                <item
+                    android:id="@+id/realizar_inventario"
+                    android:checked="true"
+                    android:icon="@drawable/ic_inventario"
+                    android:title="@string/inventario_item" />
+            </menu>
+        </item>
+
         <!--item
             android:id="@+id/nav_movimiento"
             android:checked="true"
@@ -75,16 +88,18 @@
 
 
         <!-- Sección de configuración -->
-        <!--item
+        <item
+            android:visible="false"
             android:id="@+id/configuration_section"
             android:title="@string/configuracion_item">
             <menu>
                 <item
                     android:id="@+id/nav_log_out"
+                    android:checked="true"
                     android:icon="@drawable/ic_logout"
                     android:title="@string/log_out_item" />
             </menu>
-        </item-->
+        </item>
     </group>
 
 </menu>

@@ -28,6 +28,8 @@ public class PrefManager {
 
     private static final String KEY_ID_DISPOSITIVO = "idDispositivo";
 
+    private static final String KEY_IS_ENCARGADO = "isEncargado";
+
     public PrefManager(Context context) {
         this._context = context;
         preferences = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -38,7 +40,7 @@ public class PrefManager {
     /**
      * Create login session
      */
-    public void createLoginSession(String username, String password, String id) {
+    public void createLoginSession(String username, String password, String id, boolean isEncargado) {
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -47,6 +49,8 @@ public class PrefManager {
         editor.putString(KEY_PASSWORD, password);
 
         editor.putString(KEY_ID_DISPOSITIVO, id);
+
+        editor.putBoolean(KEY_IS_ENCARGADO, isEncargado);
 
         // commit changes
         editor.commit();
@@ -66,6 +70,10 @@ public class PrefManager {
 
     public boolean isLoggedIn() {
         return preferences.getBoolean(IS_LOGIN, false);
+    }
+
+    public boolean isEncargado() {
+        return preferences.getBoolean(KEY_IS_ENCARGADO, false);
     }
 
     public void logout() {
