@@ -4,14 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.Activo;
@@ -24,7 +29,7 @@ import butterknife.Bind;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
-public class Main2Activity extends AppCompatActivity {
+public class MovementActivity extends AppCompatActivity {
 
     @Bind(R.id.content_main2)
     LinearLayout contentMain2;
@@ -48,8 +53,8 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         ButterKnife.bind(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        setToolbar();
 
         Intent tipo = getIntent();
         Intent activos = getIntent();
@@ -82,8 +87,25 @@ public class Main2Activity extends AppCompatActivity {
             contentMain2.addView(tvNuevaUbicacion);
             contentMain2.addView(btnUbicacion);
             contentMain2.addView(checkBoxProvisional);
+
+            btnUbicacion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(MovementActivity.this, LocationActivity.class));
+                }
+            });
         }
 
+    }
+
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Movimiento");
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     private TextInputLayout createTextInputLayout(String content) {
@@ -128,5 +150,25 @@ public class Main2Activity extends AppCompatActivity {
         checkBox.setTextSize(gravity);
         checkBox.setPadding(0, padding, 0, 0);
         return checkBox;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.movimiento_send, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.action_send_movimiento:
+                Toast.makeText(this, "enviado :v", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
