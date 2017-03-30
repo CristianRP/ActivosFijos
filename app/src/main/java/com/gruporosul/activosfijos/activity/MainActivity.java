@@ -25,6 +25,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
+import com.gruporosul.activosfijos.fragment.AprobacionMovimientosFragment;
 import com.gruporosul.activosfijos.fragment.FichaColaboradorFragment;
 import com.gruporosul.activosfijos.fragment.FragmentDepartamento;
 import com.gruporosul.activosfijos.fragment.MisActivosFragment;
@@ -211,6 +212,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (title.equals(getString(R.string.inventario_item))) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
+        } else if (title.equals(getString(R.string.aprovacion))) {
+            fragment = new AprobacionMovimientosFragment();
         }
 
         return fragment;
