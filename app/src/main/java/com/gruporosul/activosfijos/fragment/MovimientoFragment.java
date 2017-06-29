@@ -28,7 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
@@ -53,12 +53,12 @@ public class MovimientoFragment extends Fragment
     private ActivosFragment mActivosFragment;
 
     private final static String URL_MOVIMIENTOS =
-            "http://200.30.160.117:8070/ServicioClientes.asmx/AF_Movimientos?idColaborador=";
+            "http://168.234.51.176:8070/ServicioClientes.asmx/AF_Movimientos?idColaborador=";
 
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.recyclerMovimiento)
+    @BindView(R.id.recyclerMovimiento)
     RecyclerView mRecyclerView;
 
     @BindString(R.string.nav_departamento)
@@ -67,7 +67,7 @@ public class MovimientoFragment extends Fragment
     @BindString(R.string.hint_scan)
     String mHintScan;
 
-    @Bind(R.id.empty_view)
+    @BindView(R.id.empty_view)
     TextView empty_view;
 
     private OnFragmentInteractionListener mListener;

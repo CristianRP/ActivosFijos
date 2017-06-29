@@ -33,7 +33,7 @@ import com.gruporosul.activosfijos.fragment.ScannActivo;
 import com.gruporosul.activosfijos.fragment.UsuarioFragment;
 import com.gruporosul.activosfijos.preferences.PrefManager;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -52,18 +52,20 @@ public class MainActivity extends AppCompatActivity {
      * Binding de views con {@link ButterKnife}
      */
 
-    @Bind(R.id.toolbar) Toolbar mToolbar;
+    @BindView(R.id.toolbar) Toolbar mToolbar;
     @BindString(R.string.app_name) String appName;
 
     /**
      * Instancia del drawer layout
      */
-    @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
 
     /**
      * Instancia del navigation view
      */
-    @Bind(R.id.nav_view) NavigationView mNavigationView;
+    @BindView(R.id.nav_view) NavigationView mNavigationView;
+
+    public static MainActivity mainActivity;
 
 
     @Override
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mPrefManager = new PrefManager(this);
+
+        mainActivity = this;
 
         //setUserName();
 
@@ -210,10 +214,23 @@ public class MainActivity extends AppCompatActivity {
             fragment = new MisActivosFragment();
             //startActivity(new Intent(MainActivity.this, LocationActivity.class));
         } else if (title.equals(getString(R.string.inventario_item))) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            finish();
+            if (mPrefManager.isEncargado()) {
+                startActivity(new Intent(MainActivity.this, InventarioActivity.class));
+                finish();
+            } else {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                Toast.makeText(this, "No tienes permiso para esta acción!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         } else if (title.equals(getString(R.string.aprovacion))) {
-            fragment = new AprobacionMovimientosFragment();
+            if (mPrefManager.isEncargado()) {
+                fragment = new AprobacionMovimientosFragment();    
+            } else {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                Toast.makeText(this, "No tienes permiso para esta acción!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+            
         }
 
         return fragment;

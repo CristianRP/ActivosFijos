@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -47,19 +48,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AprobarInventario extends AppCompatActivity
         implements AprobacionAdapter.OnItemClickListener {
 
-    @Bind(R.id.emptyView)
+    @BindView(R.id.emptyView)
     LinearLayout emptyView;
-    @Bind(R.id.fab_procesar)
+    @BindView(R.id.fab_procesar)
     FloatingActionButton fabProcesar;
-    @Bind(R.id.fab_escanear)
+    @BindView(R.id.fab_escanear)
     FloatingActionButton fabEscanear;
-    @Bind(R.id.fab_enviar_inventario)
+    @BindView(R.id.fab_enviar_inventario)
     FloatingActionButton fabEnviarInventario;
 
     private List<Activo> activoList = new ArrayList<>();
@@ -68,19 +69,23 @@ public class AprobarInventario extends AppCompatActivity
     private ProgressDialog mProgressDialog;
     private LinearLayoutManager mLayoutManager;
     private RecyclerView mRecyclerViewAprobacion;
-    private static final String url_get_inventario = "http://200.30.160.117:8070/Servicioclientes.asmx/get_diferencia_inventario?";
+    private static final String url_get_inventario = "http://168.234.51.176:8070/Servicioclientes.asmx/get_diferencia_inventario?";
     private static String get_activos =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_activo_escaneado?idActivo=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/af_get_activo_escaneado?idActivo=";
     private static String cambiar_estado_inventario =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/cambiar_estado_inventario";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/cambiar_estado_inventario";
     private static String insert_activo_inventario =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/insert_activo_inventario";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/insert_activo_inventario";
+
+    public static AprobarInventario aprobarInventario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aprobar_inventario);
         ButterKnife.bind(this);
+
+        aprobarInventario = this;
 
         setToolbar();
 
@@ -201,6 +206,11 @@ public class AprobarInventario extends AppCompatActivity
                 return params;
             }
         };
+        activo_inventario.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         AppController.getInstance().addToRequestQueue(activo_inventario);
     }
 
@@ -419,6 +429,11 @@ public class AprobarInventario extends AppCompatActivity
                 return params;
             }
         };
+        validar_inventario.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         AppController.getInstance().addToRequestQueue(validar_inventario);
     }
 
@@ -456,8 +471,13 @@ public class AprobarInventario extends AppCompatActivity
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        MainActivity.mainActivity.finish();
+                        InventarioActivity.inventarioActivity.finish();
+                        EscanearActivity.escanearActivity.finish();
                         Intent main = new Intent(AprobarInventario.this, MainActivity.class);
+                        Toast.makeText(AprobarInventario.this, "Procesado con éxito!", Toast.LENGTH_SHORT).show();
                         startActivity(main);
+                        AprobarInventario.this.finish();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -474,6 +494,11 @@ public class AprobarInventario extends AppCompatActivity
                 return params;
             }
         };
+        validar_inventario.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         AppController.getInstance().addToRequestQueue(validar_inventario);
     }
 

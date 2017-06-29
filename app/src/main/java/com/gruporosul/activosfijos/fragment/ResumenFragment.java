@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -46,8 +46,8 @@ import butterknife.OnClick;
  */
 public class ResumenFragment extends Fragment {
 
-    private static final String URL_IDENTIFICADOR_INVENTARIO = "http://200.30.160.117:8070/Servicioclientes.asmx/Identificador_Inventario";
-    private static final String URL_NUEVO_INVENTARIO = "http://200.30.160.117:8070/Servicioclientes.asmx/Inventario";
+    private static final String URL_IDENTIFICADOR_INVENTARIO = "http://168.234.51.176:8070/Servicioclientes.asmx/Identificador_Inventario";
+    private static final String URL_NUEVO_INVENTARIO = "http://168.234.51.176:8070/Servicioclientes.asmx/Inventario";
     private static final String insert_inventario = "insert_inventario";
     private static final String TAG = ResumenFragment.class.getSimpleName();
 
@@ -55,22 +55,22 @@ public class ResumenFragment extends Fragment {
 
     private ProgressDialog mProgressDialog;
 
-    @Bind(R.id.mbIniciar)
+    @BindView(R.id.mbIniciar)
     MorphingButton mbIniciar;
 
-    @Bind(R.id.txtTituloInventario)
+    @BindView(R.id.txtTituloInventario)
     TextView mTxtTitulo;
 
-    @Bind(R.id.txtFechaValue)
+    @BindView(R.id.txtFechaValue)
     TextView mTxtFecha;
 
-    @Bind(R.id.txtUsuarioValue)
+    @BindView(R.id.txtUsuarioValue)
     TextView mTxtUsuario;
 
-    @Bind(R.id.txtEstadoValue)
+    @BindView(R.id.txtEstadoValue)
     TextView mTxtEstado;
 
-    @Bind(R.id.txtUbicacionValue)
+    @BindView(R.id.txtUbicacionValue)
     TextView mTxtUbicacion;
 
     public ResumenFragment() {

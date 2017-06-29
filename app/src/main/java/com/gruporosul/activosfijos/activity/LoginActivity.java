@@ -30,7 +30,7 @@ import com.gruporosul.activosfijos.volley.AppController;
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     private ProgressDialog mProgressDialog;
-    private static final String url_login = "http://200.30.160.117:8070/Servicioclientes.asmx/LoginUsuario";
+    private static final String url_login = "http://168.234.51.176:8070/Servicioclientes.asmx/LoginUsuario";
     private static final String  tag_string_req = "login_req";
     private PrefManager mPrefManager;
 
@@ -51,17 +51,17 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Bindings de view's (Libreria  ButterKnife)
      */
-    @Bind(R.id.txtLogin)
+    @BindView(R.id.txtLogin)
     TextView tituloLogin;
-    @Bind(R.id.textUser)
+    @BindView(R.id.textUser)
     EditText textUser;
-    @Bind(R.id.textPassword)
+    @BindView(R.id.textPassword)
     EditText textPassword;
-    @Bind(R.id.fabLogin)
+    @BindView(R.id.fabLogin)
     FloatingActionButton mFabLogin;
-    @Bind(R.id.coordinatorLogin)
+    @BindView(R.id.coordinatorLogin)
     CoordinatorLayout mCoodinatorLogin;
-    @Bind(R.id.imgLogo)
+    @BindView(R.id.imgLogo)
     ImageView mImgLogo;
 
 
@@ -73,10 +73,10 @@ public class LoginActivity extends AppCompatActivity {
 
         mPrefManager = new PrefManager(getApplicationContext());
 
-        if (mPrefManager.isLoggedIn()) {
+       /* if (mPrefManager.isLoggedIn()) {
             startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
             finish();
-        }
+        }*/
 
         getDeviceResolution();
 
@@ -190,13 +190,14 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         Log.d(TAG, response);
-                        mProgressDialog.dismiss();
+
                         if (!TextUtils.isEmpty(response) && !response.contains("error")) {
                             isEncargado(username, password, idDispositivo);
-                            mPrefManager.createLoginSession(username, password, idDispositivo, false);
+                            /*mPrefManager.createLoginSession(username, password, idDispositivo, false);
                             startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
-                            finish();
+                            finish();*/
                         } else {
+                            mProgressDialog.dismiss();
                             showSnackbar(mCoodinatorLogin, getString(R.string.login_error));
                             textUser.setText("");
                             textPassword.setText("");
@@ -244,13 +245,14 @@ public class LoginActivity extends AppCompatActivity {
     private void isEncargado(final String username, final String password, final String idDispositivo) {
         StringRequest isEncardadoRequest = new StringRequest(
                 Request.Method.POST,
-                "http://200.30.160.117:8070/Servicioclientes.asmx/get_is_encargado_activos",
+                "http://168.234.51.176:8070/Servicioclientes.asmx/get_is_encargado_activos",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        mProgressDialog.dismiss();
                         if (response.contains("true")) {
                             mPrefManager.createLoginSession(username, password, idDispositivo, true);
-                            startActivity(new Intent(LoginActivity.this, InventarioActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         } else {
                             mPrefManager.createLoginSession(username, password, idDispositivo, false);

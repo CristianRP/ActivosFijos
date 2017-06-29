@@ -2,9 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.gruporosul.activosfijos.fragment.AprobacionMovimientosFragment">
 
     <LinearLayout
+        android:id="@+id/linearRecycler"
+        android:visibility="gone"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,6 +17,29 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/layout_listado_movimientos" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/emptyView"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/ic_documento_vacio"/>
+
+        <TextView
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="No hay movimientos por aprobar."/>
 
     </LinearLayout>
 </FrameLayout>

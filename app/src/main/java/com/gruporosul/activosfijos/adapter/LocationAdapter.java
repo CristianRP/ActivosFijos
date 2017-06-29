@@ -12,7 +12,7 @@ import com.gruporosul.activosfijos.bean.Ubicacion;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -50,13 +50,13 @@ public class LocationAdapter
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.codUbicacion)
+        @BindView(R.id.codUbicacion)
         TextView codUbicacion;
-        @Bind(R.id.tvDescripcion)
+        @BindView(R.id.tvDescripcion)
         TextView tvDescripcion;
-        @Bind(R.id.tvNUbicacionPadre)
+        @BindView(R.id.tvNUbicacionPadre)
         TextView tvNUbicacionPadre;
-        @Bind(R.id.codUbicacionPadre)
+        @BindView(R.id.codUbicacionPadre)
         TextView codUbicacionPadre;
 
         private LocationAdapter parent = null;

@@ -37,7 +37,7 @@
             </menu>
         </item>
 
-        <!--item
+        <item
             android:id="@+id/nav_inventario"
             android:checked="true"
             android:title="@string/nav_op_menu_inventario">
@@ -48,7 +48,7 @@
                     android:icon="@drawable/ic_inventario"
                     android:title="@string/inventario_item" />
             </menu>
-        </item-->
+        </item>
 
         <!--item
             android:id="@+id/nav_movimiento"

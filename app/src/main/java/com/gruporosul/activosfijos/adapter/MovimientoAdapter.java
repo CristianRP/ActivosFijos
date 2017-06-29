@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.Movimiento;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -37,19 +37,19 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtIdMovimiento)
+        @BindView(R.id.txtIdMovimiento)
         TextView txtIdMovimiento;
 
-        @Bind(R.id.txtFecha)
+        @BindView(R.id.txtFecha)
         TextView txtFecha;
 
-        @Bind(R.id.txtNombreOrigen)
+        @BindView(R.id.txtNombreOrigen)
         TextView txtNombreOrigen;
 
-        @Bind(R.id.txtNombreDestino)
+        @BindView(R.id.txtNombreDestino)
         TextView txtNombreDestino;
 
-        @Bind(R.id.txtMotivo)
+        @BindView(R.id.txtMotivo)
         TextView txtMotivo;
 
         private MovimientoAdapter parent = null;

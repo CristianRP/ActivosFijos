@@ -23,7 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailActivity extends AppCompatActivity {
@@ -31,12 +31,12 @@ public class DetailActivity extends AppCompatActivity {
     private static String[] TEST_CARACTERISTICAS = {
             "COLOR: NEGRO", "RUEDAS: SI"
     };
-    @Bind(R.id.content_detail)
+    @BindView(R.id.content_detail)
     LinearLayout contentDetail;
 
     private ProgressDialog mProgressDialog;
     private PrefManager mPrefManager;
-    private static final String get_activos_detail = "http://200.30.160.117:8070/Servicioclientes.asmx/GET_CARACTERISTICAS_ACTIVO?idActivo=";
+    private static final String get_activos_detail = "http://168.234.51.176:8070/Servicioclientes.asmx/GET_CARACTERISTICAS_ACTIVO?idActivo=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

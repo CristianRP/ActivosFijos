@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.Departamento;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -37,7 +37,7 @@ public class AdapterDepartamento extends RecyclerView.Adapter<AdapterDepartament
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtDepartamento)
+        @BindView(R.id.txtDepartamento)
         TextView txtDepartamento;
 
         private AdapterDepartamento parent = null;

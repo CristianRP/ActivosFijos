@@ -43,32 +43,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class InventarioActivity extends AppCompatActivity {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.content_inventario)
+    @BindView(R.id.content_inventario)
     RelativeLayout contentInventario;
-    @Bind(R.id.fab)
+    @BindView(R.id.fab)
     FloatingActionButton fabNext;
     @BindString(R.string.hint_scan)
     String mHintScan;
-    @Bind(R.id.txtColaborador)
+    @BindView(R.id.txtColaborador)
     TextView txtColaborador;
 
     private final static int COLABORADOR_REQUEST_ID = 0;
     private int cod_ficha;
     private ProgressDialog mProgressDialog;
     private static String get_id_encabezado =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/get_afget_id_encabezado?codFicha=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/get_afget_id_encabezado?codFicha=";
     private static String insert_new_inventario =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/insert_activo_encabezado";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/insert_activo_encabezado";
     private PrefManager mPrefManager;
+    public static InventarioActivity inventarioActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +79,7 @@ public class InventarioActivity extends AppCompatActivity {
 
         mPrefManager = new PrefManager(this);
 
-        if (!mPrefManager.isEncargado())
-            Toast.makeText(this, "No tienes acceso a esta función!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(InventarioActivity.this, MainActivity.class));
-            finish();
+        inventarioActivity = this;
 
         setToolbar();
 

@@ -53,7 +53,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -86,10 +86,10 @@ public class EscanearActivosFragment extends Fragment
     private CalculoInventarioFragment mCalculoInventarioFragment;
 
     private final static String URL_ESCANEAR_ACTIVO =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/Escanear_Activo";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/Escanear_Activo";
 
     private final static String URL_LISTA_ACTIVOS =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/AF_Lista_Usuario_Activos?codColaborador=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/AF_Lista_Usuario_Activos?codColaborador=";
 
     public static Boolean escaneado = false;
     public static int POSICION = -1;
@@ -98,7 +98,7 @@ public class EscanearActivosFragment extends Fragment
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.recyclerEscanearActivos)
+    @BindView(R.id.recyclerEscanearActivos)
     RecyclerView mRecyclerView;
 
     @BindString(R.string.hint_scan)

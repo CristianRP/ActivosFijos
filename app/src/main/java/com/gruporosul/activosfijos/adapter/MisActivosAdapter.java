@@ -14,7 +14,7 @@ import com.davidecirillo.multichoicerecyclerview.MultiChoiceAdapter;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.Activo;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -82,11 +82,11 @@ public class MisActivosAdapter extends MultiChoiceAdapter<MisActivosAdapter.View
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.txtActivo)
+        @BindView(R.id.txtActivo)
         TextView txtActivo;
-        @Bind(R.id.txtUbicacion)
+        @BindView(R.id.txtUbicacion)
         TextView txtUbicacion;
-        @Bind(R.id.txtIdActivo)
+        @BindView(R.id.txtIdActivo)
         TextView txtIdActivo;
 
         ViewHolder(View itemView) {

@@ -36,8 +36,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
 import butterknife.BindString;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -60,12 +60,12 @@ public class UsuarioFragment extends Fragment
     private MovimientoFragment mMovimientoFragment;
 
     private final static String URL =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/AF_Lista_Usuario";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/AF_Lista_Usuario";
 
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.recyclerUsuario)
+    @BindView(R.id.recyclerUsuario)
     RecyclerView mRecyclerView;
 
     @BindString(R.string.nav_usuario)

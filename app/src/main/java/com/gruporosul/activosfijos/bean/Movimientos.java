@@ -37,6 +37,15 @@ public class Movimientos {
 
     public static List<Movimientos> LISTADO_MOVIMIENTOS = new ArrayList<>();
 
+    public static Movimientos getItem(String idMovimiento) {
+        for (Movimientos item : LISTADO_MOVIMIENTOS) {
+            if (item.getIdMovimiento().equals(idMovimiento)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public Movimientos() {
     }
 

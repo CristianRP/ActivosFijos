@@ -19,7 +19,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.gruporosul.activosfijos.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -40,10 +40,10 @@ public class FichaColaboradorFragment extends Fragment {
     @BindString(R.string.hint_scan)
     String mHintScan;
 
-    @Bind(R.id.txtCodigo)
+    @BindView(R.id.txtCodigo)
     EditText mSearchCodigo;
 
-    @Bind(R.id.text_layout_codigo)
+    @BindView(R.id.text_layout_codigo)
     TextInputLayout mTextIL;
 
     public FichaColaboradorFragment() {

@@ -25,13 +25,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
 public class MovementActivity extends AppCompatActivity {
 
-    @Bind(R.id.content_move)
+    @BindView(R.id.content_move)
     LinearLayout mContentMovimiento;
     @BindString(R.string.motivo)
     String motivo;

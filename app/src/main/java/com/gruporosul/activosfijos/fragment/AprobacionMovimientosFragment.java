@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.adapter.AprobarActivoAdapter;
@@ -27,7 +28,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -37,8 +38,12 @@ public class AprobacionMovimientosFragment extends Fragment
         implements AprobarActivoAdapter.OnItemClickListener {
 
 
-    @Bind(R.id.recyclerAprobarMovimientos)
+    @BindView(R.id.recyclerAprobarMovimientos)
     RecyclerView mRecyclerAprobarMovimientos;
+    @BindView(R.id.linearRecycler)
+    LinearLayout linearRecycler;
+    @BindView(R.id.emptyView)
+    LinearLayout emptyView;
     private ProgressDialog mProgressDialog;
     private AprobarActivoAdapter mAdapter;
     private LinearLayoutManager mLayoutManager;
@@ -52,6 +57,15 @@ public class AprobacionMovimientosFragment extends Fragment
     public AprobacionMovimientosFragment() {
         // Required empty public constructor
     }
+
+    /*public static AprobarMovimientoFragment newInstance(int param1, String param2) {
+        AprobarMovimientoFragment fragment = new AprobarMovimientoFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
+    }*/
 
 
     @Override
@@ -84,14 +98,14 @@ public class AprobacionMovimientosFragment extends Fragment
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        //ButterKnife.bi(this);
     }
 
     @Override
     public void onItemClick(AprobarActivoAdapter.ViewHolder item, int position) {
         Movimientos movimientos = Movimientos.LISTADO_MOVIMIENTOS.get(position);
 
-        mAprobarMovimientoFragment = AprobarMovimientoFragment.newInstance(0,movimientos.getIdMovimiento());
+        mAprobarMovimientoFragment = AprobarMovimientoFragment.newInstance(0, movimientos.getIdMovimiento());
         FragmentTransaction mFragmentTransaction = getFragmentManager().beginTransaction();
         mFragmentTransaction.replace(R.id.main_content, mAprobarMovimientoFragment, AprobarMovimientoFragment.TAG);
         mFragmentTransaction.addToBackStack(AprobacionMovimientosFragment.TAG); // Agrega a la pila el fragmento para poder retroceder
@@ -101,7 +115,7 @@ public class AprobacionMovimientosFragment extends Fragment
     }
 
     /**
-     * Petición lista de usuarios {@link com.gruporosul.activosfijos.bean.Movimientos}
+     * Petición lista de usuarios {@link Movimientos}
      * y seteado de datos en el recyclerview {@link RecyclerView}
      */
     private class get_list_movimientos extends AsyncTask<String, Void, List<Movimientos>> {
@@ -132,6 +146,10 @@ public class AprobacionMovimientosFragment extends Fragment
             mAdapter = new AprobarActivoAdapter(Movimientos.LISTADO_MOVIMIENTOS, getActivity());
             mAdapter.setHasStableIds(true);
             mAdapter.setOnItemClickListener(AprobacionMovimientosFragment.this);
+            if (Movimientos.LISTADO_MOVIMIENTOS.size() != 0) {
+                linearRecycler.setVisibility(View.VISIBLE);
+                emptyView.setVisibility(View.GONE);
+            }
             mRecyclerAprobarMovimientos.setAdapter(mAdapter);
             mProgressDialog.dismiss();
         }

@@ -43,7 +43,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
@@ -62,7 +62,7 @@ public class ActivosFragment extends Fragment
     public static final String TAG = ActivosFragment.class.getSimpleName();
     private static final String  tag_string_req = "activos_req";
 
-    private static final String URL_INVENTARIO = "http://200.30.160.117:8070/Servicioclientes.asmx/Escanear_Activo";
+    private static final String URL_INVENTARIO = "http://168.234.51.176:8070/Servicioclientes.asmx/Escanear_Activo";
 
     private LinearLayoutManager mLayoutManager;
     private ActivoFijoAdapter mAdaptador;
@@ -72,7 +72,7 @@ public class ActivosFragment extends Fragment
     private BlankFragment mBlankFragment;
 
     private final static String URL =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/AF_Lista_Usuario_Activos?codColaborador=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/AF_Lista_Usuario_Activos?codColaborador=";
 
     private static String idActivo;
     private static String descripcion;
@@ -81,13 +81,13 @@ public class ActivosFragment extends Fragment
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.recyclerListadoActivos)
+    @BindView(R.id.recyclerListadoActivos)
     RecyclerView mRecyclerView;
 
     @BindString(R.string.hint_scan)
     String mHintScan;
 
-    @Bind(R.id.empty_view)
+    @BindView(R.id.empty_view)
     TextView empty_view;
 
     public ActivosFragment() {

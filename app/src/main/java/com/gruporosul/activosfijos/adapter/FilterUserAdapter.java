@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.FilterUser;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -37,7 +37,7 @@ public class FilterUserAdapter extends RecyclerView.Adapter<FilterUserAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtDepartamento)
+        @BindView(R.id.txtDepartamento)
         TextView txtFilterUser;
 
         private FilterUserAdapter parent = null;

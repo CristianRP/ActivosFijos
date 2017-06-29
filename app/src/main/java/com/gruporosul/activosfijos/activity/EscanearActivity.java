@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -51,7 +52,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.view.View.GONE;
@@ -59,17 +60,17 @@ import static android.view.View.GONE;
 public class EscanearActivity extends AppCompatActivity
         implements ActivoEscaneadoAdapter.OnItemClickListener {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
     //@Bind(R.id.recyclerActivosEscaneados)
     RecyclerView recyclerActivosEscaneados;
-    @Bind(R.id.content_escanear)
+    @BindView(R.id.content_escanear)
     RelativeLayout contentEscanear;
-    @Bind(R.id.fab_enviar_inventario)
+    @BindView(R.id.fab_enviar_inventario)
     FloatingActionButton fabEnviarInventario;
-    @Bind(R.id.fab_escanear)
+    @BindView(R.id.fab_escanear)
     FloatingActionButton fabEscanear;
-    @Bind(R.id.emptyView)
+    @BindView(R.id.emptyView)
     LinearLayout emptyView;
 
     private ActivoEscaneadoAdapter mAdapter;
@@ -81,13 +82,15 @@ public class EscanearActivity extends AppCompatActivity
     private LayerDrawable icon;
 
     private static String get_activos =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_activo_escaneado?idActivo=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/af_get_activo_escaneado?idActivo=";
     private static String insert_activo_inventario =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/insert_activo_inventario";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/insert_activo_inventario";
     private static String cambiar_estado_inventario =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/cambiar_estado_inventario";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/cambiar_estado_inventario";
     private static String get_id_encabezado =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/get_afget_id_encabezado?codFicha=";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/get_afget_id_encabezado?codFicha=";
+
+    public static EscanearActivity escanearActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +99,8 @@ public class EscanearActivity extends AppCompatActivity
         ButterKnife.bind(this);
 
         setToolbar();
+
+        escanearActivity = this;
 
         recyclerActivosEscaneados = (RecyclerView) findViewById(R.id.recyclerActivosEscaneados);
         recyclerActivosEscaneados.setHasFixedSize(true);
@@ -333,6 +338,11 @@ public class EscanearActivity extends AppCompatActivity
                 return params;
             }
         };
+        activo_inventario.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         AppController.getInstance().addToRequestQueue(activo_inventario);
     }
 
@@ -362,6 +372,11 @@ public class EscanearActivity extends AppCompatActivity
                 return params;
             }
         };
+        validar_inventario.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        ));
         AppController.getInstance().addToRequestQueue(validar_inventario);
     }
 

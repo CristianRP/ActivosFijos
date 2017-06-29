@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.Diferencia;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -38,11 +38,11 @@ public class CalculoAdapter extends RecyclerView.Adapter<CalculoAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtCalculoDesc)
+        @BindView(R.id.txtCalculoDesc)
         TextView txtCalculoDesc;
-        @Bind(R.id.txtCalculoEstado)
+        @BindView(R.id.txtCalculoEstado)
         TextView txtCalculoEstado;
-        @Bind(R.id.rlCalculo)
+        @BindView(R.id.rlCalculo)
         RelativeLayout rlCalculo;
 
         private CalculoAdapter parent = null;

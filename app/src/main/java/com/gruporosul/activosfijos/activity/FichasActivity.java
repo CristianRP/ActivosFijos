@@ -35,7 +35,7 @@ public class FichasActivity extends AppCompatActivity
     private RecyclerView mRecyclerViewFichas;
     private SearchView mSearView;
     private static final String url_get_fichas =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_ficha_colaboradores";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/af_get_ficha_colaboradores";
 
     public static int OPCION = 0;
     List<FichaColaborador> fichaColaboradors;

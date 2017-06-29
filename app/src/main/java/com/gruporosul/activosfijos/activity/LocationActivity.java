@@ -36,7 +36,7 @@ public class LocationActivity extends AppCompatActivity
     private RecyclerView mRecyclerViewUbicaciones;
     private SearchView searchView;
     private static final String url_get_ubicaciones =
-            "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_ubicaciones";
+            "http://168.234.51.176:8070/Servicioclientes.asmx/af_get_ubicaciones";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

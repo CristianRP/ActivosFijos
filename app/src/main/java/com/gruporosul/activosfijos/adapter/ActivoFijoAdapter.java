@@ -12,8 +12,8 @@ import com.gruporosul.activosfijos.R;
 import com.gruporosul.activosfijos.bean.ActivoFijo;
 import com.gruporosul.activosfijos.fragment.EscanearActivosFragment;
 
-import butterknife.Bind;
 import butterknife.BindColor;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -40,17 +40,17 @@ public class ActivoFijoAdapter extends RecyclerView.Adapter<ActivoFijoAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtBarCode)
+        @BindView(R.id.txtBarCode)
         TextView txtBarCode;
-        @Bind(R.id.txtId)
+        @BindView(R.id.txtId)
         TextView txtIdActivo;
-        @Bind(R.id.txtActivo)
+        @BindView(R.id.txtActivo)
         TextView txtDescActivo;
-        @Bind(R.id.txtEstado)
+        @BindView(R.id.txtEstado)
         TextView txtEstadoActivo;
-        @Bind(R.id.rlListado)
+        @BindView(R.id.rlListado)
         RelativeLayout rlListado;
-        @BindColor(R.color.bootstrap_brand_danger)
+        @BindColor(R.color.red)
         int red;
 
 

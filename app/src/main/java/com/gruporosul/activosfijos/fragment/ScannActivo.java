@@ -31,7 +31,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 
@@ -42,7 +42,7 @@ public class ScannActivo extends Fragment {
 
     public static final String TAG = ActivosFragment.class.getSimpleName();
 
-    private static final String URL_SCANN_ACTIVO = "http://200.30.160.117:8070/Servicioclientes.asmx/AF_Scann_Activo?idActivo=";
+    private static final String URL_SCANN_ACTIVO = "http://168.234.51.176:8070/Servicioclientes.asmx/AF_Scann_Activo?idActivo=";
 
     private ProgressDialog mProgressDialog;
     private PrefManager mPrefManager;
@@ -54,31 +54,31 @@ public class ScannActivo extends Fragment {
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.relativeScann)
+    @BindView(R.id.relativeScann)
     RelativeLayout mRelativeScann;
 
     @BindString(R.string.hint_scan)
     String mHintScan;
 
-    @Bind(R.id.empty_view)
+    @BindView(R.id.empty_view)
     TextView empty_view;
 
-    @Bind(R.id.txtIdColaborador)
+    @BindView(R.id.txtIdColaborador)
     TextView mIdColaborador;
 
-    @Bind(R.id.txtNombre)
+    @BindView(R.id.txtNombre)
     TextView mNombre;
 
-    @Bind(R.id.txtIdActivo)
+    @BindView(R.id.txtIdActivo)
     TextView mIdActivo;
 
-    @Bind(R.id.txtDescripcion)
+    @BindView(R.id.txtDescripcion)
     TextView mDescripcion;
 
-    @Bind(R.id.txtEstado)
+    @BindView(R.id.txtEstado)
     TextView mEstado;
 
-    @Bind(R.id.txtUbicacion)
+    @BindView(R.id.txtUbicacion)
     TextView mUbicacion;
 
     public static ScannActivo newInstance(Bundle arguments){

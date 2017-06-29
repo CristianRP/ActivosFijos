@@ -42,7 +42,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -56,7 +56,7 @@ public class CalculoInventarioFragment extends Fragment
     public static final String TAG = CalculoInventarioFragment.class.getSimpleName();
     private static final String tag_actualizar = "actualizar_inventario";
 
-    private static final String URL_CALCULO = "http://200.30.160.117:8070/Servicioclientes.asmx/Calcular_Inventario?idInventario=";
+    private static final String URL_CALCULO = "http://168.234.51.176:8070/Servicioclientes.asmx/Calcular_Inventario?idInventario=";
 
     private LinearLayoutManager mLayoutManager;
     private CalculoAdapter mAdaptador;
@@ -67,12 +67,12 @@ public class CalculoInventarioFragment extends Fragment
     private FragmentDepartamento mFragmentDepartamento;
 
     private final static String URL_UPDATE_INVENTARIO =
-            "http://200.30.160.117:8070/ServicioClientes.asmx/Actualizar_Estado_Inventario";
+            "http://168.234.51.176:8070/ServicioClientes.asmx/Actualizar_Estado_Inventario";
 
     /**
      * Bindings de view y string con la libreria {@link ButterKnife}
      */
-    @Bind(R.id.recyclerCalculoInventario)
+    @BindView(R.id.recyclerCalculoInventario)
     RecyclerView mRecyclerView;
 
     @BindString(R.string.hint_scan)

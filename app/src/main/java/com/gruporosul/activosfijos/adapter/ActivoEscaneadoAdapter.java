@@ -12,7 +12,7 @@ import com.gruporosul.activosfijos.bean.Activo;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -50,11 +50,11 @@ public class ActivoEscaneadoAdapter
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtActivo)
+        @BindView(R.id.txtActivo)
         TextView txtActivo;
-        @Bind(R.id.txtUbicacion)
+        @BindView(R.id.txtUbicacion)
         TextView txtUbicacion;
-        @Bind(R.id.txtIdActivo)
+        @BindView(R.id.txtIdActivo)
         TextView txtIdActivo;
 
         private ActivoEscaneadoAdapter parent = null;

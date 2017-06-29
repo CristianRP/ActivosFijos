@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.gruporosul.activosfijos.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -27,7 +27,7 @@ public class BlankFragment extends Fragment {
 
     private FichaColaboradorFragment mFichaColaboradorFragment;
 
-    @Bind(R.id.btnInicio)
+    @BindView(R.id.btnInicio)
     Button btnInicio;
 
     public BlankFragment() {

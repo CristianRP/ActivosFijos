@@ -12,7 +12,7 @@ import com.gruporosul.activosfijos.bean.FichaColaborador;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -51,15 +51,15 @@ public class FichasAdapter
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.tvCodFicha)
+        @BindView(R.id.tvCodFicha)
         TextView tvCodFicha;
-        @Bind(R.id.tvNFicha)
+        @BindView(R.id.tvNFicha)
         TextView tvNFicha;
-        @Bind(R.id.tvUsuario)
+        @BindView(R.id.tvUsuario)
         TextView tvUsuario;
-        @Bind(R.id.tvEmail)
+        @BindView(R.id.tvEmail)
         TextView tvEmail;
-        @Bind(R.id.tvDepto)
+        @BindView(R.id.tvDepto)
         TextView tvDepto;
 
         private FichasAdapter viewParent = null;

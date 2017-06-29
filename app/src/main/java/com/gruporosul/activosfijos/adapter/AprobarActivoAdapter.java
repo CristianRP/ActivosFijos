@@ -12,7 +12,7 @@ import com.gruporosul.activosfijos.bean.Movimientos;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -44,15 +44,15 @@ public class AprobarActivoAdapter extends RecyclerView.Adapter<AprobarActivoAdap
     public static class ViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        @Bind(R.id.txtIdMovimiento)
+        @BindView(R.id.txtIdMovimiento)
         TextView mIdMovimiento;
-        @Bind(R.id.txtDescripcionActivo)
+        @BindView(R.id.txtDescripcionActivo)
         TextView mDescripcionActivo;
-        @Bind(R.id.tipoMovimiento)
+        @BindView(R.id.tipoMovimiento)
         TextView mTipoMovimiento;
-        @Bind(R.id.txtUsuarioSolicito)
+        @BindView(R.id.txtUsuarioSolicito)
         TextView mUsuarioSolicito;
-        @Bind(R.id.txtDescUsuarioNuevo)
+        @BindView(R.id.txtDescUsuarioNuevo)
         TextView mDescUsuarioNuevo;
 
         private AprobarActivoAdapter parent = null;

@@ -36,7 +36,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -46,20 +46,20 @@ import butterknife.ButterKnife;
  */
 public class MisActivosFragment extends Fragment {
 
-    @Bind(R.id.multiChoiceRecyclerView)
+    @BindView(R.id.multiChoiceRecyclerView)
     public MultiChoiceRecyclerView multiChoiceRecyclerView;
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar toolbar;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    @Bind(R.id.fab_cambio_ubicacion)
+    @BindView(R.id.fab_cambio_ubicacion)
     FloatingActionButton fabCambioUbicacion;
-    @Bind(R.id.fab_solicitud_baja)
+    @BindView(R.id.fab_solicitud_baja)
     FloatingActionButton fabSolicitudBaja;
-    @Bind(R.id.fab_traslados)
+    @BindView(R.id.fab_traslados)
     FloatingActionButton fabTraslados;
-    @Bind(R.id.fab_ubicacion_responsable)
+    @BindView(R.id.fab_ubicacion_responsable)
     FloatingActionButton fabUbicacionResponsable;
     private String mParam1;
     private String mParam2;
@@ -71,7 +71,7 @@ public class MisActivosFragment extends Fragment {
     private static int TRASLADOS = 2;
     private static int TRASLADOS_RESPONSABLE = 3;
 
-    private static String get_activos = "http://200.30.160.117:8070/Servicioclientes.asmx/af_get_activos?user_name=cramirez";
+    private static String get_activos = "http://168.234.51.176:8070/Servicioclientes.asmx/af_get_activos?user_name=cramirez";
 
 
     public MisActivosFragment() {
@@ -198,7 +198,7 @@ public class MisActivosFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        //ButterKnife.unbind(this);
     }
 
     private void setUpMultiChoiceRecyclerView() {
